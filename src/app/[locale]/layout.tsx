@@ -7,6 +7,8 @@ import { Inter } from 'next/font/google';
 import { Locales } from '@/const';
 import { routing } from '@/i18n/routing';
 
+import Footer from '@/components/footer';
+
 import '../globals.css';
 
 const inter = Inter({
@@ -32,10 +34,11 @@ export default async function RootLayout({
 
   return (
     <html lang={locale}>
-      <body className={`${inter.className} antialiased`}>
+      <body className={`${inter.className} relative antialiased`}>
         <NextIntlClientProvider messages={messages}>
           {children}
         </NextIntlClientProvider>
+        <Footer />
       </body>
     </html>
   );

@@ -1,9 +1,10 @@
 import { unstable_setRequestLocale } from 'next-intl/server';
-import Image from 'next/image';
 
 import { Locales } from '@/const';
 import { Link } from '@/i18n/routing';
 import { MoveDown, MoveRight } from 'lucide-react';
+
+import { ProjectCard } from '@/components/project-card';
 
 export default function Home({
   params: { locale },
@@ -102,15 +103,12 @@ export default function Home({
             </div>
           </div>
           <div className="grid grid-cols-3 gap-1 px-2 pb-16">
-            <div className="relative h-[350px]">
-              <Image src="/project-1.jpg" fill alt="Project 1" />
-            </div>
-            <div className="relative h-[350px]">
-              <Image src="/project-2.jpg" fill alt="Project 2" />
-            </div>
-            <div className="relative h-[350px]">
-              <Image src="/project-3.jpg" fill alt="Project 3" />
-            </div>
+            <ProjectCard name="Casa del Arbol" imageSrc="/project-1.jpg" />
+            <ProjectCard name="Casa del Arbol" imageSrc="/project-2.jpg" />
+            <ProjectCard name="Casa del Arbol" imageSrc="/project-3.jpg" />
+            <ProjectCard name="Casa del Arbol" imageSrc="/project-3.jpg" />
+            <ProjectCard name="Casa del Arbol" imageSrc="/project-1.jpg" />
+            <ProjectCard name="Casa del Arbol" imageSrc="/project-2.jpg" />
           </div>
         </div>
       </main>
