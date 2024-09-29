@@ -12,7 +12,12 @@ export function ProjectCard({ name, imageSrc }: ProjectCardProps) {
       <span className="absolute left-0 right-0 top-[50%] z-10 translate-y-[-50%] text-center text-2xl font-semibold uppercase leading-tight tracking-tight text-white opacity-0 transition-opacity duration-100 group-hover:opacity-100 group-hover:delay-300">
         {name}
       </span>
-      <Image src={imageSrc} fill alt={name} />
+      <Image
+        src={imageSrc}
+        fill
+        alt={name}
+        className="transition-transform duration-500 ease-in-out group-hover:scale-110"
+      />
     </div>
   );
 }
