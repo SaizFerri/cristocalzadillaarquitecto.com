@@ -2,6 +2,9 @@
   "globals": {
     "architect": "Arquitect"
   },
+  "navigation": {
+    "projects": "Projects"
+  },
   "footer": {
     "direction": "Direction",
     "contact": "Contact",

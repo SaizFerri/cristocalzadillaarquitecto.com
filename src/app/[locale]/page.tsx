@@ -5,6 +5,7 @@ import { Locales } from '@/const';
 import { Link } from '@/i18n/routing';
 import { MoveDown, MoveRight } from 'lucide-react';
 
+import Navigation from '@/components/navigation';
 import { ProjectCard } from '@/components/project-card';
 import { VelocityScroll } from '@/components/vertical-scroll-text';
 
@@ -33,25 +34,9 @@ export default function Home({
         </video>
       </div>
       <header className="h-screen w-full">
-        <nav className="container mx-auto px-4 py-6 md:px-0 md:py-8">
-          <div className="text-white">
-            <Link
-              href="es"
-              className="transition-colors duration-100 ease-linear hover:text-zinc-400"
-            >
-              ESP
-            </Link>
-            <span> | </span>
-            <Link
-              href="en"
-              className="transition-colors duration-100 ease-linear hover:text-zinc-400"
-            >
-              ENG
-            </Link>
-          </div>
-        </nav>
+        <Navigation theme="light" />
         <div className="flex h-[calc(100vh-88px)] flex-col items-center justify-end">
-          <h1 className="mb-[88px] text-center text-[48px] font-semibold uppercase leading-none text-white md:text-[72px] xl:text-[96px]">
+          <h1 className="mb-[88px] text-center text-4xl font-semibold uppercase leading-none tracking-tight text-white md:text-7xl xl:text-8xl">
             Cristo Calzadilla <br />
             {t('globals.architect')}
           </h1>
@@ -86,7 +71,7 @@ export default function Home({
         <div>
           <div className="mx-auto max-w-[992px] px-4 lg:px-0">
             <div className="mb-12 text-center">
-              <h2 className="mb-4 text-[48px] font-semibold uppercase leading-tight tracking-tight md:text-[72px]">
+              <h2 className="text-x mb-4 text-4xl font-semibold uppercase leading-tight tracking-tight md:text-8xl">
                 {t('homepage.projects.title')}
               </h2>
               <Link
