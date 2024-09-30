@@ -4,6 +4,7 @@ import { unstable_setRequestLocale } from 'next-intl/server';
 import React from 'react';
 
 import { Locales } from '@/const';
+import { routing } from '@/i18n/routing';
 
 import Navigation from '@/components/navigation';
 import { ProjectCard } from '@/components/project-card';
@@ -40,4 +41,8 @@ export default function ProjectsPage({
       </main>
     </div>
   );
+}
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
 }

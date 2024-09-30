@@ -19,7 +19,7 @@ export default function Home({
 
   return (
     <div>
-      <div className="w-ful fixed left-0 top-0 -z-10 h-screen w-full">
+      <div className="w-ful fixed left-0 top-0 -z-10 h-[100dvh] w-full">
         <div className="absolute h-full w-full bg-black opacity-55"></div>
         <video
           preload="auto"
@@ -35,7 +35,7 @@ export default function Home({
       </div>
       <header className="h-screen w-full">
         <Navigation theme="light" />
-        <div className="flex h-[calc(100vh-88px)] flex-col items-center justify-end">
+        <div className="flex h-[calc(100dvh-88px)] flex-col items-center justify-end">
           <h1 className="mb-[88px] text-center text-4xl font-semibold uppercase leading-none tracking-tight text-white md:text-7xl xl:text-8xl">
             Cristo Calzadilla <br />
             {t('globals.architect')}
@@ -75,7 +75,7 @@ export default function Home({
                 {t('homepage.projects.title')}
               </h2>
               <Link
-                href="/projects"
+                href="projects"
                 className="group inline-flex items-center gap-2 text-sm uppercase"
               >
                 <MoveRight className="w-0 origin-left text-zinc-400 transition-[width] duration-200 ease-in-out group-hover:w-6" />
