@@ -1,7 +1,7 @@
 import { useTranslations } from 'next-intl';
 import { unstable_setRequestLocale } from 'next-intl/server';
 
-import React from 'react';
+import React, { Suspense } from 'react';
 
 import { Locales } from '@/const';
 import { routing } from '@/i18n/routing';
@@ -19,7 +19,9 @@ export default function ProjectsPage({
 
   return (
     <div>
-      <Navigation />
+      <Suspense>
+        <Navigation />
+      </Suspense>
       <main>
         <div className="container mx-auto">
           <div className="mb-8 text-center md:mb-16">

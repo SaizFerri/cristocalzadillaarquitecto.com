@@ -1,6 +1,8 @@
 import { useTranslations } from 'next-intl';
 import { unstable_setRequestLocale } from 'next-intl/server';
 
+import { Suspense } from 'react';
+
 import { Locales } from '@/const';
 import { Link } from '@/i18n/routing';
 import { MoveDown, MoveRight } from 'lucide-react';
@@ -34,7 +36,9 @@ export default function Home({
         </video>
       </div>
       <header className="h-screen w-full">
-        <Navigation theme="light" />
+        <Suspense>
+          <Navigation theme="light" />
+        </Suspense>
         <div className="flex h-[calc(100dvh-88px)] flex-col items-center justify-end">
           <h1 className="mb-[88px] text-center text-4xl font-semibold uppercase leading-none tracking-tight text-white md:text-7xl xl:text-8xl">
             Cristo Calzadilla <br />
