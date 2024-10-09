@@ -6,12 +6,12 @@
     "projects": "Projects"
   },
   "footer": {
-    "direction": "Direction",
+    "address": "Address",
     "contact": "Contact",
     "social": "Social Media"
   },
   "homepage": {
-    "textShow": "Architecture | Engineering | Certifications | Structures | Energy Efficiency | Design | Urban Planning | ",
+    "textShow": " Architecture | Engineering | Certifications | Structures | Energy Efficiency | Design | Urban Planning | ",
     "about": {
       "title": "Cristo Calzadilla is an architect based in Tenerife ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       "p1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
@@ -20,6 +20,34 @@
     "projects": {
       "title": "Projects",
       "goToProjects": "All projects"
+    },
+    "studio": {
+      "title": "Studio",
+      "section": {
+        "title": "Cristo Calzadilla Arquitectos es un estudio de arquitectura fundado en 2005 por Cristo Calzadilla...",
+        "p1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo."
+      }
+    },
+    "services": {
+      "title": "Services",
+      "section": {
+        "urbanism": {
+          "title": "Urbanism",
+          "description": "We provide architecture services for urbanism We provide architecture services for urbanism"
+        },
+        "structures": {
+          "title": "Structures",
+          "description": "We provide architecture services for urbanism..."
+        },
+        "certifications": {
+          "title": "Certifications",
+          "description": "We provide architecture services for urbanism..."
+        },
+        "energyEfficiency": {
+          "title": "Energy Efficiency",
+          "description": "We provide architecture services for urbanism..."
+        }
+      }
     }
   }
 }

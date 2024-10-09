@@ -11,7 +11,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-4">
           <div className="text-center md:text-left">
             <span className="mb-4 block text-sm uppercase text-zinc-400">
-              {t('footer.direction')}
+              {t('footer.address')}
             </span>
             <a
               href="https://maps.app.goo.gl/zuYZDU7CTi799CrY9"

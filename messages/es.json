@@ -6,12 +6,12 @@
     "projects": "Proyectos"
   },
   "footer": {
-    "direction": "Direccion",
+    "address": "Dirección",
     "contact": "Contacto",
     "social": "Social Media"
   },
   "homepage": {
-    "textShow": "Arquitectura | Ingenieria | Certificados | Estructuras | Eficiencia energetica | Diseño | Urbanismo | ",
+    "textShow": " Arquitectura | Ingeniería | Certificados | Estructuras | Eficiencia energética | Diseño | Urbanismo | ",
     "about": {
       "title": "Cristo Calzadilla es un arquitecto ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       "p1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
@@ -20,6 +20,34 @@
     "projects": {
       "title": "Proyectos",
       "goToProjects": "Todos los proyectos"
+    },
+    "studio": {
+      "title": "Estudio",
+      "section": {
+        "title": "Cristo Calzadilla Arquitectos es un estudio de arquitectura fundado en 2005 por Cristo Calzadilla...",
+        "p1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo"
+      }
+    },
+    "services": {
+      "title": "Servicios",
+      "section": {
+        "urbanism": {
+          "title": "Urbanismo",
+          "description": "Somos expertos en arquitectura urbanistica..."
+        },
+        "structures": {
+          "title": "Estructuras",
+          "description": "Somos expertos en arquitectura urbanistica..."
+        },
+        "certifications": {
+          "title": "Certificados",
+          "description": "Somos expertos en arquitectura urbanistica..."
+        },
+        "energyEfficiency": {
+          "title": "Eficiencia energetica",
+          "description": "Somos expertos en arquitectura urbanistica..."
+        }
+      }
     }
   }
 }
