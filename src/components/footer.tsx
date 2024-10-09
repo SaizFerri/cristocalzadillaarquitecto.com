@@ -31,9 +31,11 @@ export default function Footer() {
             </span>
             <div className="uppercase leading-tight tracking-tight text-white">
               <p className="mb-4">Cristo Calzadilla {t('globals.architect')}</p>
-              <a href="mailto:">cristocalzadilla@saiz.com</a>
+              <a href="mailto:cristocalzadilla@gmail.com">
+                cristocalzadilla@gmail.com
+              </a>
               <br />
-              <a href="tel:1213123123">666555444</a>
+              <a href="tel:+34606098933">+34606098933</a>
             </div>
           </div>
           <div className="text-center md:text-right">
