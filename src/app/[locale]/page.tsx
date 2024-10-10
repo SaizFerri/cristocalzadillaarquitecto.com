@@ -1,5 +1,4 @@
-import { useTranslations } from 'next-intl';
-import { unstable_setRequestLocale } from 'next-intl/server';
+import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 
 import { Suspense } from 'react';
 
@@ -12,13 +11,18 @@ import { ProjectCard } from '@/components/project-card';
 import ServiceCard from '@/components/service-card';
 import { VelocityScroll } from '@/components/vertical-scroll-text';
 
-export default function Home({
+import { getFileSrc, getProjects } from '@/lib/directus';
+
+export const revalidate = 60;
+
+export default async function Home({
   params: { locale },
 }: {
   params: { locale: Locales };
 }) {
   unstable_setRequestLocale(locale);
-  const t = useTranslations();
+  const t = await getTranslations({ locale });
+  const projects = await getProjects({ limit: 6 });
 
   return (
     <div>
@@ -42,7 +46,7 @@ export default function Home({
           <Navigation theme="light" />
         </Suspense>
         <div className="flex h-[calc(100dvh-107px)] flex-col items-center justify-end md:h-[calc(100dvh-163px)]">
-          <h1 className="mb-[88px] text-center text-4xl font-semibold uppercase leading-none tracking-tight text-white md:text-7xl xl:text-8xl">
+          <h1 className="mb-24 text-center text-4xl font-semibold uppercase leading-none tracking-tight text-white md:text-7xl xl:text-8xl">
             Cristo Calzadilla <br />
             {t('globals.architect')}
           </h1>
@@ -93,12 +97,18 @@ export default function Home({
             </div>
           </div>
           <div className="grid-cols grid gap-1 px-2 md:grid-cols-2 md:px-6 lg:grid-cols-3 lg:px-8">
-            <ProjectCard name="Casa del Arbol" imageSrc="/project-1.jpg" />
-            <ProjectCard name="Casa del Arbol" imageSrc="/project-2.jpg" />
-            <ProjectCard name="Casa del Arbol" imageSrc="/project-3.jpg" />
-            <ProjectCard name="Casa del Arbol" imageSrc="/project-3.jpg" />
-            <ProjectCard name="Casa del Arbol" imageSrc="/project-1.jpg" />
-            <ProjectCard name="Casa del Arbol" imageSrc="/project-2.jpg" />
+            {projects.map((project) => (
+              <Link key={project.id} href={`/proyectos/${project.slug}`}>
+                <ProjectCard
+                  name={project.title}
+                  imageSrc={
+                    project.header_image
+                      ? getFileSrc(project.header_image.id)
+                      : undefined
+                  }
+                />
+              </Link>
+            ))}
           </div>
         </section>
 
