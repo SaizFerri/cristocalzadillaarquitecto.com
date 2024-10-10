@@ -112,8 +112,8 @@ export default function Home({
             <h3 className="mb-8 text-xl font-semibold uppercase leading-tight tracking-tight md:text-2xl">
               {t('homepage.studio.section.title')}
             </h3>
-            <div className="flex gap-8">
-              <div className="h-96 w-full max-w-80 flex-shrink-0 bg-gray-500" />
+            <div className="grid grid-cols-1 gap-8 sm:grid-cols-[minmax(0,320px),1fr]">
+              <div className="h-96 bg-gray-500" />
               <div>
                 <p className="text-justify text-lg leading-snug tracking-tight">
                   {t('homepage.studio.section.p1')}

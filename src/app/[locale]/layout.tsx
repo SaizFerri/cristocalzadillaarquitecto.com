@@ -34,7 +34,10 @@ export default async function RootLayout({
 
   return (
     <html lang={locale}>
-      <body className={`${inter.className} text-text relative antialiased`}>
+      <head>
+        <link rel="icon" href="/favicon.png" />
+      </head>
+      <body className={`${inter.className} relative text-text antialiased`}>
         <NextIntlClientProvider messages={messages}>
           {children}
         </NextIntlClientProvider>
