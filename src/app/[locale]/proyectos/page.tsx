@@ -6,7 +6,7 @@ import React, { Suspense } from 'react';
 import { Locales } from '@/const';
 import { routing } from '@/i18n/routing';
 
-import Navigation from '@/components/navigation';
+import Navigation, { NavigationLoader } from '@/components/navigation';
 import { ProjectCard } from '@/components/project-card';
 
 export default function ProjectsPage({
@@ -19,15 +19,12 @@ export default function ProjectsPage({
 
   return (
     <div>
-      <Suspense>
+      <Suspense fallback={<NavigationLoader />}>
         <Navigation />
       </Suspense>
       <main>
         <div className="container mx-auto">
-          <div className="mb-8 text-center md:mb-16">
-            <p className="text-sm uppercase leading-tight tracking-tight md:text-lg">
-              Cristo Calzadilla {t('globals.architect')}
-            </p>
+          <div className="mb-8 mt-12 text-center md:mb-16">
             <h1 className="text-4xl font-semibold uppercase leading-tight tracking-tight md:text-7xl xl:text-8xl">
               {t('navigation.projects')}
             </h1>

@@ -49,5 +49,21 @@
         }
       }
     }
+  },
+  "urbanismPage": {
+    "title": "Urbanism",
+    "description": "Expert in urbanism and design..."
+  },
+  "structuresPage": {
+    "title": "Structures",
+    "description": "Expert in urbanism and design..."
+  },
+  "certificationsPage": {
+    "title": "Certifications",
+    "description": "Expert in urbanism and design..."
+  },
+  "energyEfficiencyPage": {
+    "title": "Energy Efficiency",
+    "description": "Expert in urbanism and design..."
   }
 }

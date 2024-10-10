@@ -44,10 +44,26 @@
           "description": "Somos expertos en arquitectura urbanistica..."
         },
         "energyEfficiency": {
-          "title": "Eficiencia energetica",
+          "title": "Eficiencia energética",
           "description": "Somos expertos en arquitectura urbanistica..."
         }
       }
     }
+  },
+  "urbanismPage": {
+    "title": "Urbanismo",
+    "description": "Experto en urbanismo y diseño..."
+  },
+  "structuresPage": {
+    "title": "Estructuras",
+    "description": "Experto en urbanismo y diseño..."
+  },
+  "certificationsPage": {
+    "title": "Certificados",
+    "description": "Experto en urbanismo y diseño..."
+  },
+  "energyEfficiencyPage": {
+    "title": "Eficiencia energética",
+    "description": "Experto en urbanismo y diseño..."
   }
 }

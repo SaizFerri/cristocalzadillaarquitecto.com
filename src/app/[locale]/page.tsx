@@ -7,7 +7,7 @@ import { Locales } from '@/const';
 import { Link } from '@/i18n/routing';
 import { MoveDown, MoveRight } from 'lucide-react';
 
-import Navigation from '@/components/navigation';
+import Navigation, { NavigationLoader } from '@/components/navigation';
 import { ProjectCard } from '@/components/project-card';
 import ServiceCard from '@/components/service-card';
 import { VelocityScroll } from '@/components/vertical-scroll-text';
@@ -38,7 +38,7 @@ export default function Home({
       </div>
 
       <header className="h-screen w-full">
-        <Suspense>
+        <Suspense fallback={<NavigationLoader />}>
           <Navigation theme="light" />
         </Suspense>
         <div className="flex h-[calc(100dvh-88px)] flex-col items-center justify-end">
@@ -84,10 +84,10 @@ export default function Home({
                 {t('homepage.projects.title')}
               </h2>
               <Link
-                href="projects"
+                href="proyectos"
                 className="group inline-flex items-center gap-2 text-sm uppercase"
               >
-                <MoveRight className="w-0 origin-left text-zinc-400 transition-[width] duration-200 ease-in-out group-hover:w-6" />
+                <MoveRight className="w-0 origin-left stroke-1 text-gray-500 transition-[width] duration-200 ease-in-out group-hover:w-6" />
                 <span>{t('homepage.projects.goToProjects')}</span>
               </Link>
             </div>
@@ -132,35 +132,45 @@ export default function Home({
             </div>
           </div>
           <div className="grid-cols grid gap-8 px-2 md:grid-cols-2 md:px-6 lg:grid-cols-4 lg:px-8">
-            <ServiceCard
-              src="/urbanism.webp"
-              title={t('homepage.services.section.urbanism.title')}
-              description={t('homepage.services.section.urbanism.description')}
-            />
+            <Link href="urbanismo">
+              <ServiceCard
+                src="/urbanism.webp"
+                title={t('homepage.services.section.urbanism.title')}
+                description={t(
+                  'homepage.services.section.urbanism.description',
+                )}
+              />
+            </Link>
 
-            <ServiceCard
-              src="/structures.jpg"
-              title={t('homepage.services.section.structures.title')}
-              description={t(
-                'homepage.services.section.structures.description',
-              )}
-            />
+            <Link href="estructuras">
+              <ServiceCard
+                src="/structures.jpg"
+                title={t('homepage.services.section.structures.title')}
+                description={t(
+                  'homepage.services.section.structures.description',
+                )}
+              />
+            </Link>
 
-            <ServiceCard
-              src="/energy.webp"
-              title={t('homepage.services.section.energyEfficiency.title')}
-              description={t(
-                'homepage.services.section.energyEfficiency.description',
-              )}
-            />
+            <Link href="eficiencia-energetica">
+              <ServiceCard
+                src="/energy.webp"
+                title={t('homepage.services.section.energyEfficiency.title')}
+                description={t(
+                  'homepage.services.section.energyEfficiency.description',
+                )}
+              />
+            </Link>
 
-            <ServiceCard
-              src="/energy.webp"
-              title={t('homepage.services.section.certifications.title')}
-              description={t(
-                'homepage.services.section.certifications.description',
-              )}
-            />
+            <Link href="certificaciones">
+              <ServiceCard
+                src="/energy.webp"
+                title={t('homepage.services.section.certifications.title')}
+                description={t(
+                  'homepage.services.section.certifications.description',
+                )}
+              />
+            </Link>
           </div>
         </section>
       </main>
