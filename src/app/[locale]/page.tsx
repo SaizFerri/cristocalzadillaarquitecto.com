@@ -41,7 +41,7 @@ export default function Home({
         <Suspense fallback={<NavigationLoader />}>
           <Navigation theme="light" />
         </Suspense>
-        <div className="flex h-[calc(100dvh-88px)] flex-col items-center justify-end">
+        <div className="flex h-[calc(100dvh-107px)] flex-col items-center justify-end md:h-[calc(100dvh-163px)]">
           <h1 className="mb-[88px] text-center text-4xl font-semibold uppercase leading-none tracking-tight text-white md:text-7xl xl:text-8xl">
             Cristo Calzadilla <br />
             {t('globals.architect')}
