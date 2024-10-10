@@ -76,3 +76,7 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+.container-tight {
+  @apply mx-auto max-w-[992px] px-4 lg:px-0;
+}

@@ -45,7 +45,7 @@ export default function EnergyEfficiencyPage({
             />
           </div>
 
-          <div className="mx-auto max-w-[992px]">
+          <div className="container-tight">
             <section className="pb-16 pt-32">
               <h2 className="text-4xl font-semibold uppercase leading-tight tracking-tight">
                 Lorem Ipsum et dolorem

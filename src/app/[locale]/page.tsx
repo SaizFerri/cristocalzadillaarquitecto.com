@@ -59,7 +59,7 @@ export default function Home({
           />
         </section>
 
-        <section className="mx-auto max-w-[992px] px-4 lg:px-0">
+        <section className="container-tight">
           <div className="pb-12 pt-24 lg:pb-16 lg:pt-32">
             <div className="mb-12">
               <h2 className="mb-8 text-2xl font-semibold uppercase leading-tight tracking-tight md:text-[32px]">
@@ -78,7 +78,7 @@ export default function Home({
         </section>
 
         <section className="py-12 lg:py-16">
-          <div className="mx-auto max-w-[992px] px-4 lg:px-0">
+          <div className="container-tight">
             <div className="mb-12 text-center">
               <h2 className="mb-4 text-4xl font-semibold uppercase leading-tight tracking-tight md:text-8xl">
                 {t('homepage.projects.title')}
@@ -102,7 +102,7 @@ export default function Home({
           </div>
         </section>
 
-        <section className="mx-auto max-w-[992px] px-4 lg:px-0">
+        <section className="container-tight">
           <div className="py-12 lg:py-16">
             <div className="mb-12 text-center">
               <h2 className="mb-4 text-4xl font-semibold uppercase leading-tight tracking-tight md:text-8xl">
@@ -124,7 +124,7 @@ export default function Home({
         </section>
 
         <section className="py-12 lg:py-16">
-          <div className="mx-auto max-w-[992px] px-4 lg:px-0">
+          <div className="container-tight">
             <div className="mb-12 text-center">
               <h2 className="mb-4 text-4xl font-semibold uppercase leading-tight tracking-tight md:text-8xl">
                 {t('homepage.services.title')}
