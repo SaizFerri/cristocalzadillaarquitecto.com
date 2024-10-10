@@ -18,6 +18,8 @@ import {
   getProjectBySlug,
 } from '@/lib/directus';
 
+import { translate } from '@/utils/translate';
+
 export default async function ProjectPage({
   params: { locale, slug },
 }: {
@@ -29,6 +31,8 @@ export default async function ProjectPage({
   if (!project) {
     notFound();
   }
+
+  const t = translate(project, locale);
 
   return (
     <div>
@@ -65,11 +69,11 @@ export default async function ProjectPage({
           <div className="container-tight">
             <section className="py-16">
               <h2 className="text-3xl font-semibold uppercase leading-none tracking-tight">
-                {project.content_title}
+                {t('content_title')}
               </h2>
               <TextColumns className="mt-8">
-                <Wysiwyg content={project.content_text_left} />
-                <Wysiwyg content={project.content_text_right} />
+                <Wysiwyg content={t('content_text_left')} />
+                <Wysiwyg content={t('content_text_right')} />
               </TextColumns>
             </section>
           </div>

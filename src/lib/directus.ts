@@ -6,6 +6,8 @@ import {
   rest,
 } from '@directus/sdk';
 
+import { Locales } from '@/const';
+
 export const enum Collection {
   PROJECTS = 'projects',
 }
@@ -51,6 +53,13 @@ interface BaseCollection {
   date_updated: string;
 }
 
+export type Translation = {
+  id: number;
+  projects_id: number;
+  languages_code: Locales;
+  [key: string]: any;
+};
+
 interface Project extends BaseCollection {
   id: number;
   type: 'urbanism' | 'structures';
@@ -66,7 +75,7 @@ interface Project extends BaseCollection {
     Project,
     'id' | 'content_title' | 'content_text_left' | 'content_text_right'
   > &
-    { languages_code?: 'en-US' | 'de-DE' }[];
+    Translation[];
 }
 
 type ProjectResponse = Omit<Project, 'gallery'> & {
