@@ -75,7 +75,7 @@ export default async function ProjectPage({
             <div className="container-tight">
               <section className="pb-12 pt-24 md:pb-16 md:pt-32">
                 {t('content_title') && (
-                  <h2 className="text-3xl font-semibold uppercase leading-none tracking-tight">
+                  <h2 className="text-2xl font-semibold leading-tight tracking-tight md:text-4xl">
                     {t('content_title')}
                   </h2>
                 )}

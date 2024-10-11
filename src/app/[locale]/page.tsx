@@ -65,8 +65,8 @@ export default async function Home({
 
         <section className="container-tight">
           <div className="pb-12 pt-24 lg:pb-16 lg:pt-32">
-            <div className="mb-12">
-              <h2 className="mb-8 text-2xl font-semibold uppercase leading-tight tracking-tight md:text-[32px]">
+            <div className="mb-8">
+              <h2 className="text-2xl font-semibold leading-tight tracking-tight md:text-4xl">
                 {t('homepage.about.title')}
               </h2>
             </div>
@@ -115,11 +115,11 @@ export default async function Home({
         <section className="container-tight">
           <div className="py-12 lg:py-16">
             <div className="mb-12 text-center">
-              <h2 className="mb-4 text-4xl font-semibold uppercase leading-tight tracking-tight md:text-8xl">
+              <h2 className="text-4xl font-semibold uppercase leading-tight tracking-tight md:text-8xl">
                 {t('homepage.studio.title')}
               </h2>
             </div>
-            <h3 className="mb-8 text-xl font-semibold uppercase leading-tight tracking-tight md:text-2xl">
+            <h3 className="mb-8 text-2xl font-semibold leading-tight tracking-tight md:text-4xl">
               {t('homepage.studio.section.title')}
             </h3>
             <div className="grid grid-cols-1 gap-8 sm:grid-cols-[minmax(0,320px),1fr]">

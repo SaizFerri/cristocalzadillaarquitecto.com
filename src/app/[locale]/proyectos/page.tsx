@@ -1,7 +1,7 @@
-import { useTranslations } from 'next-intl';
-import { unstable_setRequestLocale } from 'next-intl/server';
+import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
+import Link from 'next/link';
 
-import React, { Suspense } from 'react';
+import { Suspense } from 'react';
 
 import { Locales } from '@/const';
 import { routing } from '@/i18n/routing';
@@ -9,13 +9,18 @@ import { routing } from '@/i18n/routing';
 import Navigation, { NavigationLoader } from '@/components/navigation';
 import { ProjectCard } from '@/components/project-card';
 
-export default function ProjectsPage({
+import { getFileSrc, getProjects } from '@/lib/directus';
+
+export const revalidate = 60;
+
+export default async function ProjectsPage({
   params: { locale },
 }: {
   params: { locale: Locales };
 }) {
   unstable_setRequestLocale(locale);
-  const t = useTranslations();
+  const t = await getTranslations({ locale });
+  const projects = await getProjects();
 
   return (
     <div>
@@ -30,11 +35,19 @@ export default function ProjectsPage({
             </h1>
           </div>
 
-          <div className="grid-cols grid gap-1 pb-16 md:grid-cols-2">
-            <ProjectCard name="Casa del Arbol" imageSrc="/project-1.jpg" />
-            <ProjectCard name="Casa del Arbol" imageSrc="/project-2.jpg" />
-            <ProjectCard name="Casa del Arbol" imageSrc="/project-3.jpg" />
-            <ProjectCard name="Casa del Arbol" imageSrc="/project-3.jpg" />
+          <div className="grid-cols grid gap-4 pb-16 md:grid-cols-2">
+            {projects.map((project) => (
+              <Link key={project.id} href={`/proyectos/${project.slug}`}>
+                <ProjectCard
+                  name={project.title}
+                  imageSrc={
+                    project.header_image
+                      ? getFileSrc(project.header_image.id)
+                      : undefined
+                  }
+                />
+              </Link>
+            ))}
           </div>
         </div>
       </main>
