@@ -1,12 +1,10 @@
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 
-import { Suspense } from 'react';
-
 import { Locales } from '@/const';
 import { Link } from '@/i18n/routing';
 import { MoveDown, MoveRight } from 'lucide-react';
 
-import Navigation, { NavigationLoader } from '@/components/navigation';
+import Navigation from '@/components/navigation';
 import { ProjectCard } from '@/components/project-card';
 import ServiceCard from '@/components/service-card';
 import { VelocityScroll } from '@/components/vertical-scroll-text';
@@ -42,9 +40,7 @@ export default async function Home({
       </div>
 
       <header className="h-screen w-full">
-        <Suspense fallback={<NavigationLoader />}>
-          <Navigation theme="light" />
-        </Suspense>
+        <Navigation theme="light" />
         <div className="flex h-[calc(100dvh-107px)] flex-col items-center justify-end md:h-[calc(100dvh-163px)]">
           <h1 className="mb-24 text-center text-4xl font-semibold lowercase leading-none tracking-tight text-white md:text-7xl xl:text-8xl">
             Cristo Calzadilla <br />

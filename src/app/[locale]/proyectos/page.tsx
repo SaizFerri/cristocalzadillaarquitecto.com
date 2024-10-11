@@ -1,12 +1,10 @@
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 import Link from 'next/link';
 
-import { Suspense } from 'react';
-
 import { Locales } from '@/const';
 import { routing } from '@/i18n/routing';
 
-import Navigation, { NavigationLoader } from '@/components/navigation';
+import Navigation from '@/components/navigation';
 import { ProjectCard } from '@/components/project-card';
 
 import { getFileSrc, getProjects } from '@/lib/directus';
@@ -24,9 +22,7 @@ export default async function ProjectsPage({
 
   return (
     <div>
-      <Suspense fallback={<NavigationLoader />}>
-        <Navigation />
-      </Suspense>
+      <Navigation />
       <main>
         <div className="container mx-auto">
           <div className="mb-8 mt-12 text-center md:mb-16">

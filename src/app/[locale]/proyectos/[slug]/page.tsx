@@ -2,13 +2,11 @@ import { unstable_setRequestLocale } from 'next-intl/server';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
-import { Suspense } from 'react';
-
 import { Locales } from '@/const';
 import { routing } from '@/i18n/routing';
 import { MoveDown } from 'lucide-react';
 
-import Navigation, { NavigationLoader } from '@/components/navigation';
+import Navigation from '@/components/navigation';
 import TextColumns from '@/components/text-columns';
 import Wysiwyg from '@/components/wysiwyg';
 
@@ -53,9 +51,7 @@ export default async function ProjectPage({
       </div>
 
       <header className="h-screen w-full">
-        <Suspense fallback={<NavigationLoader />}>
-          <Navigation theme="light" />
-        </Suspense>
+        <Navigation theme="light" />
         <div className="flex h-[calc(100dvh-107px)] flex-col items-center justify-end md:h-[calc(100dvh-163px)]">
           <div className="mb-24 text-center text-white">
             <h1 className="text-4xl font-semibold uppercase leading-none tracking-tight md:text-7xl xl:text-8xl">

@@ -2,13 +2,11 @@ import { useTranslations } from 'next-intl';
 import { unstable_setRequestLocale } from 'next-intl/server';
 import Image from 'next/image';
 
-import { Suspense } from 'react';
-
 import { Locales } from '@/const';
 import { routing } from '@/i18n/routing';
 
 import { Container } from '@/components/container';
-import Navigation, { NavigationLoader } from '@/components/navigation';
+import Navigation from '@/components/navigation';
 import PageHeader from '@/components/page/page-header';
 import PageTitle from '@/components/page/page-title';
 import TextColumns from '@/components/text-columns';
@@ -23,9 +21,7 @@ export default function EnergyEfficiencyPage({
 
   return (
     <div>
-      <Suspense fallback={<NavigationLoader />}>
-        <Navigation />
-      </Suspense>
+      <Navigation />
       <main>
         <Container>
           <PageHeader>

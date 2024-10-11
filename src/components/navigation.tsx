@@ -2,12 +2,13 @@
 
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
-import { useSearchParams } from 'next/navigation';
 
-import { RefObject, useEffect, useRef } from 'react';
+import { RefObject, Suspense, useEffect, useRef } from 'react';
 
-import { Link, usePathname } from '@/i18n/routing';
+import { Link } from '@/i18n/routing';
 import { AnimatePresence, motion, useCycle } from 'framer-motion';
+
+import LocaleSwitcher from '@/components/locale-switcher';
 
 import { cn } from '@/lib/utils';
 
@@ -16,9 +17,6 @@ type NavigationProps = {
 };
 
 export default function Navigation({ theme = 'dark' }: NavigationProps) {
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
-  const url = `${pathname}${searchParams.size > 0 ? '?' + searchParams : ''}`;
   const [open, toggleOpen] = useCycle(false, true);
   const t = useTranslations();
 
@@ -60,21 +58,9 @@ export default function Navigation({ theme = 'dark' }: NavigationProps) {
           'text-text': theme === 'dark',
         })}
       >
-        <Link
-          href={url}
-          locale="es"
-          className="transition-colors duration-100 ease-linear hover:text-zinc-400"
-        >
-          ESP
-        </Link>
-        <span> | </span>
-        <Link
-          href={url}
-          locale="en"
-          className="transition-colors duration-100 ease-linear hover:text-zinc-400"
-        >
-          ENG
-        </Link>
+        <Suspense fallback={<LocaleSwitcherLoader />}>
+          <LocaleSwitcher />
+        </Suspense>
       </div>
       <div className="flex-1 text-center">
         <Link href="/">
@@ -172,15 +158,13 @@ export default function Navigation({ theme = 'dark' }: NavigationProps) {
   );
 }
 
-export function NavigationLoader() {
+export function LocaleSwitcherLoader() {
   return (
-    <nav className="container mx-auto px-4 py-6 md:px-0 md:py-8">
-      <div>
-        <span>ESP</span>
-        <span> | </span>
-        <span>ENG</span>
-      </div>
-    </nav>
+    <div>
+      <span>ESP</span>
+      <span> | </span>
+      <span>ENG</span>
+    </div>
   );
 }
 
