@@ -20,6 +20,8 @@ import {
 
 import { translate } from '@/utils/translate';
 
+export const revalidate = 60;
+
 export default async function ProjectPage({
   params: { locale, slug },
 }: {
@@ -33,6 +35,9 @@ export default async function ProjectPage({
   }
 
   const t = translate(project, locale);
+
+  const hasContent =
+    t('content_title') || t('content_text_left') || t('content_text_right');
 
   return (
     <div>
@@ -66,20 +71,35 @@ export default async function ProjectPage({
 
       <main className="bg-white">
         <div className="container mx-auto">
-          <div className="container-tight">
-            <section className="py-16">
-              <h2 className="text-3xl font-semibold uppercase leading-none tracking-tight">
-                {t('content_title')}
-              </h2>
-              <TextColumns className="mt-8">
-                <Wysiwyg content={t('content_text_left')} />
-                <Wysiwyg content={t('content_text_right')} />
-              </TextColumns>
-            </section>
-          </div>
+          {hasContent && (
+            <div className="container-tight">
+              <section className="pb-12 pt-24 md:pb-16 md:pt-32">
+                {t('content_title') && (
+                  <h2 className="text-3xl font-semibold uppercase leading-none tracking-tight">
+                    {t('content_title')}
+                  </h2>
+                )}
+
+                {t('content_text_left') && !t('content_text_right') && (
+                  <Wysiwyg className="mt-8" content={t('content_text_left')} />
+                )}
+
+                {t('content_text_right') && !t('content_text_left') && (
+                  <Wysiwyg className="mt-8" content={t('content_text_right')} />
+                )}
+
+                {t('content_text_left') && t('content_text_right') && (
+                  <TextColumns className="mt-8">
+                    <Wysiwyg content={t('content_text_left')} />
+                    <Wysiwyg content={t('content_text_right')} />
+                  </TextColumns>
+                )}
+              </section>
+            </div>
+          )}
 
           {project.gallery && project.gallery.length > 0 && (
-            <section className="flex flex-col gap-8 py-16">
+            <section className="flex flex-col items-center gap-8 px-4 py-16 lg:px-0">
               {project.gallery?.map(({ id, title, width, height }) => (
                 <Image
                   key={id}

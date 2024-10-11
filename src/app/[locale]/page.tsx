@@ -46,7 +46,7 @@ export default async function Home({
           <Navigation theme="light" />
         </Suspense>
         <div className="flex h-[calc(100dvh-107px)] flex-col items-center justify-end md:h-[calc(100dvh-163px)]">
-          <h1 className="mb-24 text-center text-4xl font-semibold uppercase leading-none tracking-tight text-white md:text-7xl xl:text-8xl">
+          <h1 className="mb-24 text-center text-4xl font-semibold lowercase leading-none tracking-tight text-white md:text-7xl xl:text-8xl">
             Cristo Calzadilla <br />
             {t('globals.architect')}
           </h1>
