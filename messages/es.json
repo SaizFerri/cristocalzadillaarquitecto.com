@@ -3,7 +3,10 @@
     "architect": "Arquitecto"
   },
   "navigation": {
-    "projects": "Proyectos"
+    "projects": "Proyectos",
+    "studio": "Estudio",
+    "news": "Noticias",
+    "services": "Servicios"
   },
   "footer": {
     "address": "Dirección",

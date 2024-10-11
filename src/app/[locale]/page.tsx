@@ -112,7 +112,7 @@ export default async function Home({
           </div>
         </section>
 
-        <section className="container-tight">
+        <section id="estudio" className="container-tight">
           <div className="py-12 lg:py-16">
             <div className="mb-12 text-center">
               <h2 className="text-4xl font-semibold uppercase leading-tight tracking-tight md:text-8xl">
@@ -133,7 +133,7 @@ export default async function Home({
           </div>
         </section>
 
-        <section className="py-12 lg:py-16">
+        <section id="servicios" className="py-12 lg:py-16">
           <div className="container-tight">
             <div className="mb-12 text-center">
               <h2 className="mb-4 text-4xl font-semibold uppercase leading-tight tracking-tight md:text-8xl">
