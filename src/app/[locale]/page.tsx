@@ -35,6 +35,7 @@ export default async function Home({
           className="h-screen w-full object-cover"
         >
           <source src="/headervideo.webm" type="video/webm" />
+          <source src="/headervideo.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </div>
