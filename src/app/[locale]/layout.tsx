@@ -6,6 +6,8 @@ import { Inter } from 'next/font/google';
 
 import { Locales } from '@/const';
 import { routing } from '@/i18n/routing';
+import { Locale, setDefaultOptions } from 'date-fns';
+import { enGB, es } from 'date-fns/locale';
 
 import Footer from '@/components/footer';
 
@@ -16,10 +18,17 @@ const inter = Inter({
   display: 'swap',
 });
 
+// TOOD: remove robots
 export const metadata: Metadata = {
   title: 'Cristo Calzadilla Arquitecto',
   description:
     'Arquitecto urbano en Tenerife, Islas canarias y peninsula iberica',
+  robots: { index: false, follow: false },
+};
+
+const localeMap: Record<Locales, Locale> = {
+  es: es,
+  en: enGB,
 };
 
 export default async function RootLayout({
@@ -30,6 +39,7 @@ export default async function RootLayout({
   params: { locale: Locales };
 }>) {
   unstable_setRequestLocale(locale);
+  setDefaultOptions({ locale: localeMap[locale] });
   const messages = await getMessages();
 
   return (

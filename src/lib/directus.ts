@@ -10,6 +10,7 @@ import { Locales } from '@/const';
 
 export const enum Collection {
   PROJECTS = 'projects',
+  NEWS = 'news',
 }
 
 export const enum Status {
@@ -24,6 +25,7 @@ export const COLLECTION_STATUS = [
 
 interface Collections {
   projects: ProjectResponse[];
+  news: NewsResponse[];
 }
 
 export interface DirectusFile {
@@ -55,9 +57,16 @@ interface BaseCollection {
 
 export type Translation = {
   id: number;
-  projects_id: number;
   languages_code: Locales;
   [key: string]: any;
+};
+
+export type ProjectTranslation = Translation & {
+  projects_id: number;
+};
+
+export type NewsTranslation = Translation & {
+  news_id: number;
 };
 
 interface Project extends BaseCollection {
@@ -75,7 +84,7 @@ interface Project extends BaseCollection {
     Project,
     'id' | 'content_title' | 'content_text_left' | 'content_text_right'
   > &
-    Translation[];
+    ProjectTranslation[];
 }
 
 type ProjectResponse = Omit<Project, 'gallery'> & {
@@ -86,6 +95,27 @@ type ProjectResponse = Omit<Project, 'gallery'> & {
     sort: number;
   }[];
 };
+
+type NewsResponse = Omit<News, 'gallery'> & {
+  gallery?: {
+    id: number;
+    news: number;
+    file: DirectusImage;
+    sort: number;
+  }[];
+};
+
+interface News extends BaseCollection {
+  id: number;
+  title: string;
+  teaser: string;
+  slug: string;
+  header_image?: DirectusImage;
+  content: string;
+  gallery?: DirectusImage[];
+  translations: Pick<News, 'id' | 'title' | 'teaser' | 'content'> &
+    NewsTranslation[];
+}
 
 export const directus = createDirectus<Collections>(
   process.env.NEXT_PUBLIC_DIRECTUS_URL as string,
@@ -159,6 +189,76 @@ export async function getAllProjectSlugs(): Promise<string[]> {
   );
 
   return proyects.map(({ slug }) => slug);
+}
+
+export async function getNews(
+  { limit }: DirectusAPIParams = { limit: -1 },
+): Promise<News[]> {
+  const news = await directus.request(
+    readItems(Collection.NEWS, {
+      limit,
+      fields: ['*.*', 'header_image.*', 'translations.*', 'gallery.file.*'],
+      sort: 'sort',
+      filter: {
+        status: {
+          _in: COLLECTION_STATUS,
+        },
+      },
+    } as Query<Collections, NewsResponse>),
+  );
+
+  if (!news || news.length === 0) {
+    return [];
+  }
+
+  return news.map((newsItem) => ({
+    ...newsItem,
+    gallery: (newsItem.gallery ?? []).map(({ file }) => file),
+  }));
+}
+
+export async function getNewsBySlug(slug: string): Promise<News | null> {
+  const news = await directus.request(
+    readItems(Collection.NEWS, {
+      limit: 1,
+      fields: ['*.*', 'header_image.*', 'translations.*', 'gallery.file.*'],
+      filter: {
+        slug: {
+          _eq: slug,
+        },
+        status: {
+          _in: COLLECTION_STATUS,
+        },
+      },
+    } as Query<Collections, NewsResponse>),
+  );
+
+  if (!news || news.length === 0) {
+    return null;
+  }
+
+  const newsItem = news[0];
+
+  return {
+    ...newsItem,
+    gallery: (newsItem.gallery ?? []).map(({ file }) => file),
+  };
+}
+
+export async function getAllNewsSlugs(): Promise<string[]> {
+  const news = await directus.request(
+    readItems(Collection.NEWS, {
+      limit: -1,
+      fields: ['slug'],
+      filter: {
+        status: {
+          _in: COLLECTION_STATUS,
+        },
+      },
+    }),
+  );
+
+  return news.map(({ slug }) => slug);
 }
 
 interface NextImageLoader {

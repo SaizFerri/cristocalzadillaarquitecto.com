@@ -5,11 +5,14 @@ import { Link } from '@/i18n/routing';
 import { MoveDown, MoveRight } from 'lucide-react';
 
 import Navigation from '@/components/navigation';
+import { NewsCard } from '@/components/news-card';
 import { ProjectCard } from '@/components/project-card';
 import ServiceCard from '@/components/service-card';
 import { VelocityScroll } from '@/components/vertical-scroll-text';
 
-import { getFileSrc, getProjects } from '@/lib/directus';
+import { getFileSrc, getNews, getProjects } from '@/lib/directus';
+
+import { translate } from '@/utils/translate';
 
 export const revalidate = 60;
 
@@ -21,6 +24,7 @@ export default async function Home({
   unstable_setRequestLocale(locale);
   const t = await getTranslations({ locale });
   const projects = await getProjects({ limit: 6 });
+  const news = await getNews({ limit: 3 });
 
   return (
     <div>
@@ -178,6 +182,42 @@ export default async function Home({
                 )}
               />
             </Link>
+          </div>
+        </section>
+
+        <section id="noticias" className="py-12 lg:py-16">
+          <div className="container-tight">
+            <div className="mb-12 text-center">
+              <h2 className="mb-4 text-4xl font-semibold uppercase leading-tight tracking-tight md:text-8xl">
+                {t('homepage.news.title')}
+              </h2>
+              <Link
+                href="noticias"
+                className="group inline-flex items-center gap-2 text-sm uppercase"
+              >
+                <MoveRight className="w-0 origin-left stroke-1 text-gray-500 transition-[width] duration-200 ease-in-out group-hover:w-6" />
+                <span>{t('homepage.news.goToProjects')}</span>
+              </Link>
+            </div>
+          </div>
+          <div className="grid-cols grid gap-1 px-2 md:grid-cols-2 md:px-6 lg:grid-cols-3 lg:px-8">
+            {news.map((newsItem) => {
+              const t = translate(newsItem, locale);
+              return (
+                <Link key={newsItem.id} href={`/noticias/${newsItem.slug}`}>
+                  <NewsCard
+                    title={t('title')}
+                    teaser={t('teaser')}
+                    createdAt={newsItem.date_created}
+                    imageSrc={
+                      newsItem.header_image
+                        ? getFileSrc(newsItem.header_image.id)
+                        : undefined
+                    }
+                  />
+                </Link>
+              );
+            })}
           </div>
         </section>
       </main>

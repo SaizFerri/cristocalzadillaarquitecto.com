@@ -51,6 +51,10 @@
           "description": "We provide architecture services for urbanism..."
         }
       }
+    },
+    "news": {
+      "title": "News",
+      "goToProjects": "All news"
     }
   },
   "urbanismPage": {
