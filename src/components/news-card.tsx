@@ -22,7 +22,7 @@ export function NewsCard({
       <div className="relative mb-4 h-[330px]">
         <div className="aspect-16x9">
           <Image
-            src={imageSrc ?? 'logo_black.svg'}
+            src={imageSrc ?? '/logo_black.svg'}
             fill
             alt={title}
             className="transition-transform duration-300 ease-in-out hover:scale-105"

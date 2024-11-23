@@ -200,7 +200,7 @@ export default async function Home({
               </Link>
             </div>
           </div>
-          <div className="grid-cols grid gap-1 px-2 md:grid-cols-2 md:px-6 lg:grid-cols-3 lg:px-8">
+          <div className="grid-cols grid gap-6 px-2 md:grid-cols-2 md:gap-2 md:px-6 lg:grid-cols-3 lg:px-8">
             {news.map((newsItem) => {
               const t = translate(newsItem, locale);
               return (

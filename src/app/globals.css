@@ -81,10 +81,42 @@ body {
   @apply mx-auto max-w-[992px] px-4 lg:px-0;
 }
 
+.wysiwyg h2 {
+  @apply mb-4 text-2xl font-semibold leading-tight md:text-3xl md:leading-snug;
+}
+
+.wysiwyg h3 {
+  @apply mb-4 text-xl font-semibold leading-tight md:text-2xl md:leading-snug;
+}
+
+.wysiwyg h4 {
+  @apply mb-3 text-lg font-semibold leading-tight md:text-xl md:leading-snug;
+}
+
+.wysiwyg h5 {
+  @apply mb-3 font-semibold leading-tight md:text-lg md:leading-snug;
+}
+
 .wysiwyg a {
   @apply underline underline-offset-2 hover:text-zinc-600;
 }
 
 .wysiwyg p {
-  @apply mb-2;
+  @apply mb-2 md:tracking-wide;
+}
+
+.wysiwyg ul {
+  @apply mb-2 ml-4 list-disc;
+}
+
+.wysiwyg blockquote {
+  @apply my-4 border-l-4 border-zinc-500 bg-zinc-50 py-2 pl-4;
+}
+
+.wysiwyg blockquote p:last-child {
+  @apply mb-0;
+}
+
+.wysiwyg img {
+  @apply my-4;
 }

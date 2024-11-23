@@ -198,7 +198,7 @@ export async function getNews(
     readItems(Collection.NEWS, {
       limit,
       fields: ['*.*', 'header_image.*', 'translations.*', 'gallery.file.*'],
-      sort: 'sort',
+      sort: 'date_created',
       filter: {
         status: {
           _in: COLLECTION_STATUS,
