@@ -191,34 +191,43 @@ export default async function Home({
               <h2 className="mb-4 text-4xl font-semibold uppercase leading-tight tracking-tight md:text-8xl">
                 {t('homepage.news.title')}
               </h2>
-              <Link
-                href="noticias"
-                className="group inline-flex items-center gap-2 text-sm uppercase"
-              >
-                <MoveRight className="w-0 origin-left stroke-1 text-gray-500 transition-[width] duration-200 ease-in-out group-hover:w-6" />
-                <span>{t('homepage.news.goToProjects')}</span>
-              </Link>
+              {news.length > 0 && (
+                <Link
+                  href="noticias"
+                  className="group inline-flex items-center gap-2 text-sm uppercase"
+                >
+                  <MoveRight className="w-0 origin-left stroke-1 text-gray-500 transition-[width] duration-200 ease-in-out group-hover:w-6" />
+                  <span>{t('homepage.news.goToProjects')}</span>
+                </Link>
+              )}
             </div>
           </div>
-          <div className="grid-cols grid gap-6 px-2 md:grid-cols-2 md:gap-2 md:px-6 lg:grid-cols-3 lg:px-8">
-            {news.map((newsItem) => {
-              const t = translate(newsItem, locale);
-              return (
-                <Link key={newsItem.id} href={`/noticias/${newsItem.slug}`}>
-                  <NewsCard
-                    title={t('title')}
-                    teaser={t('teaser')}
-                    createdAt={newsItem.date_created}
-                    imageSrc={
-                      newsItem.header_image
-                        ? getFileSrc(newsItem.header_image.id)
-                        : undefined
-                    }
-                  />
-                </Link>
-              );
-            })}
-          </div>
+          {news.length === 0 && (
+            <div className="text-center">
+              <p>{t('homepage.news.empty')}</p>
+            </div>
+          )}
+          {news.length > 0 && (
+            <div className="grid-cols grid gap-6 px-2 md:grid-cols-2 md:gap-2 md:px-6 lg:grid-cols-3 lg:px-8">
+              {news.map((newsItem) => {
+                const t = translate(newsItem, locale);
+                return (
+                  <Link key={newsItem.id} href={`/noticias/${newsItem.slug}`}>
+                    <NewsCard
+                      title={t('title')}
+                      teaser={t('teaser')}
+                      createdAt={newsItem.date_created}
+                      imageSrc={
+                        newsItem.header_image
+                          ? getFileSrc(newsItem.header_image.id)
+                          : undefined
+                      }
+                    />
+                  </Link>
+                );
+              })}
+            </div>
+          )}
         </section>
       </main>
     </div>

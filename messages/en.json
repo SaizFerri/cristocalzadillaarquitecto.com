@@ -54,7 +54,8 @@
     },
     "news": {
       "title": "News",
-      "goToProjects": "All news"
+      "goToProjects": "All news",
+      "empty": "No news available"
     }
   },
   "urbanismPage": {
